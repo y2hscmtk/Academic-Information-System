@@ -1,5 +1,7 @@
 package hansung.ac.kr.academicinformationsystem.controller;
 
+import hansung.ac.kr.academicinformationsystem.service.CourseService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 // 학사정보 컨트롤러
 @Controller
+@RequiredArgsConstructor
 public class GradeController {
     // 3) 학사 정보 접근시 인증 유무를 체크한다. 인증된 경우, 아래 4)번 작업을 수행하고
     // 미인증시 인증을 위한 Custom 로그인 폼(username, password)을 디스플레이한다. => 스프링 Security 사용
