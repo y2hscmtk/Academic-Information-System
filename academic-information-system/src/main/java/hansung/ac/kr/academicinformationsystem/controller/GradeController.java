@@ -1,11 +1,9 @@
 package hansung.ac.kr.academicinformationsystem.controller;
 
-import hansung.ac.kr.academicinformationsystem.domain.Course;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.RequestParam;
 
 // 학사정보 컨트롤러
 @Controller
@@ -15,12 +13,21 @@ public class GradeController {
     // 이 때 로그인 폼은 스프링에서 제공하는 UI (User Interface)가 아니라 자체적으로 작성한다.
 
     // 4) ① '학년별 이수 학점 조회' 시 학기별 이수 총 학점을 보여준다. 이 때 반드시 총계도 표시한다.
-    // 교과코드, 수강년도, 학기, 교과목명, 교과구분, 담당교수, 학점.. (가장 마지막 행에 취득학점 총계 표시)
-    // 학년별 이수 학점 조회 페이지로 이동
+    // 년도, 학기, 취득 학점, 상세보기(링크)
+    // 총계,      총 취득 학점
     @GetMapping("/total-grade")
     public String totalGrade(Model model) {
-        ArrayList<Course> totalGradeList = new ArrayList<>();
-        model.addAttribute("totalGradeList","dfd");
         return "totalGrade";
+    }
+
+    // 특정 년도-학기에 해당하는 테이블 조회
+    // 년도, 학기, 교과목 명, 교과 구분, 담당 교수, 학점
+    @GetMapping("/grade-detail")
+    public String gradeDetail(
+            @RequestParam String year, // 년도
+            @RequestParam String semester, // 학기
+            Model model) {
+        // 년도와 학기 정보를 바탕으로 테이블 생성
+        return "gradeDetail";
     }
 }
