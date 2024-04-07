@@ -3,7 +3,7 @@ package hansung.ac.kr.academicinformationsystem.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EnrolmentService {
+public class CourseService {
     // EnrolmentController의 요청 수행
     // Repository로부터 원하는 정보 얻어오기 + 비즈니스 로직 수행
 

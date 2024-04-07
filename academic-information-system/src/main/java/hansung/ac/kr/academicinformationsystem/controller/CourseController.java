@@ -24,6 +24,6 @@ public class CourseController {
     @GetMapping("/my-course")
     public String enrolmentLookUp() {
         // 2024-2학기 수강 신청 내역 Service에게 요청
-        return "applyCourse";
+        return "myCourse";
     }
 }
