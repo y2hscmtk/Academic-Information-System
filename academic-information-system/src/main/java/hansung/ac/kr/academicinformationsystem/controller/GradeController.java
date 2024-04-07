@@ -1,16 +1,21 @@
 package hansung.ac.kr.academicinformationsystem.controller;
 
+import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
 import hansung.ac.kr.academicinformationsystem.service.CourseService;
+import hansung.ac.kr.academicinformationsystem.service.GradeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 // 학사정보 컨트롤러
 @Controller
 @RequiredArgsConstructor
 public class GradeController {
+    private final GradeService gradeService;
     // 3) 학사 정보 접근시 인증 유무를 체크한다. 인증된 경우, 아래 4)번 작업을 수행하고
     // 미인증시 인증을 위한 Custom 로그인 폼(username, password)을 디스플레이한다. => 스프링 Security 사용
     // 이 때 로그인 폼은 스프링에서 제공하는 UI (User Interface)가 아니라 자체적으로 작성한다.
@@ -20,6 +25,10 @@ public class GradeController {
     // 총계,      총 취득 학점
     @GetMapping("/total-grade")
     public String totalGrade(Model model) {
+        CourseDAO courseDAO = gradeService.getAllCoursesAndTotalScore();
+        ArrayList<CourseDAO.CourseData> courseDataArray = courseDAO.getCourseDataArray();
+        model.addAttribute("courseDataArray", courseDataArray); // 수업 정보
+        model.addAttribute("totalGrades", courseDAO.getTotalGrades()); // 총 취득 학점
         return "totalGrade";
     }
 

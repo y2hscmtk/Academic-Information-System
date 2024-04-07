@@ -3,12 +3,12 @@ package hansung.ac.kr.academicinformationsystem.service;
 import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import hansung.ac.kr.academicinformationsystem.repsitory.CourseRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Controller
+@Service
 @RequiredArgsConstructor
 public class GradeService {
 

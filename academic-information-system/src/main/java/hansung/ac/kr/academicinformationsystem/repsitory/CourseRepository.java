@@ -4,14 +4,17 @@ import hansung.ac.kr.academicinformationsystem.domain.Course;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
+@Transactional
 @RequiredArgsConstructor
 public class CourseRepository{
 
     private final EntityManager em;
+
 
     // 모든 Course정보 조회
     public List<Course> getAllCourses(){
