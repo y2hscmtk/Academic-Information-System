@@ -13,15 +13,6 @@ public class CourseDAO {
         private int year; //년도
         private int semester; //학기
         private int grades; //취득학점
-
-        @Override
-        public String toString() {
-            return "CourseData{" +
-                    "year=" + year +
-                    ", semester=" + semester +
-                    ", grades=" + grades +
-                    '}';
-        }
     }
 
     private ArrayList<CourseData> courseDataArray = new ArrayList<>();

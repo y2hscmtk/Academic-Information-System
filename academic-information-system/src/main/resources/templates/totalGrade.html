@@ -1,11 +1,39 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Hello</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8">
+  <title>Credit Inquiry</title>
+<!--  스타일시트 추가 필요-->
 </head>
 <body>
-  <p>전체 학적 조회 페이지 입니다.</p>
-  <a href="/grade-detail">상세 보기</a>
+<h1>Credit Inquiry</h1>
+<table>
+  <thead>
+  <tr>
+    <th>년도</th>
+    <th>학기</th>
+    <th>취득 학점</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="course : ${courseDataArray}">
+    <td th:text="${course.year}">년도</td>
+    <td th:text="${course.semester}">학기</td>
+    <td th:text="${course.grades}">취득 학점</td>
+    <td>
+      <!-- 상세 정보 보기 링크 -->
+      <a th:href="@{/grade-detail(year=${course.year}, semester=${course.semester})}"
+         th:text="'상세 정보 보기'">상세 정보 보기</a>
+    </td>
+  </tr>
+
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2">총계</td>
+    <td th:text="${totalGrades}">총 취득 학점</td>
+  </tr>
+  </tfoot>
+</table>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package hansung.ac.kr.academicinformationsystem.controller;
 
 import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
-import hansung.ac.kr.academicinformationsystem.service.CourseService;
 import hansung.ac.kr.academicinformationsystem.service.GradeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
