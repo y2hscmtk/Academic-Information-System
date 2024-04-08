@@ -27,6 +27,8 @@ public class CourseRepository{
     public List<Course> getSpecificCourses(int year, int semester){
         return em.createQuery(
                 "select c from Course c where c.year = :year and c.semester = :semester",Course.class)
+                .setParameter("year",year)
+                .setParameter("semester",semester)
                 .getResultList();
     }
 

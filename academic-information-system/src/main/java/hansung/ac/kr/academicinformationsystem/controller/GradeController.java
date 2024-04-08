@@ -1,6 +1,7 @@
 package hansung.ac.kr.academicinformationsystem.controller;
 
 import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
+import hansung.ac.kr.academicinformationsystem.domain.Course;
 import hansung.ac.kr.academicinformationsystem.service.GradeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // 학사정보 컨트롤러
 @Controller
@@ -35,10 +37,11 @@ public class GradeController {
     // 년도, 학기, 교과목 명, 교과 구분, 담당 교수, 학점
     @GetMapping("/grade-detail")
     public String gradeDetail(
-            @RequestParam String year, // 년도
-            @RequestParam String semester, // 학기
+            @RequestParam int year, // 년도
+            @RequestParam int semester, // 학기
             Model model) {
-        // 년도와 학기 정보를 바탕으로 테이블 생성
+        List<Course> specificCourses = gradeService.getSpecificCourses(year, semester);
+        model.addAttribute("courses", specificCourses); // 모델에 값 전달
         return "gradeDetail";
     }
 }
