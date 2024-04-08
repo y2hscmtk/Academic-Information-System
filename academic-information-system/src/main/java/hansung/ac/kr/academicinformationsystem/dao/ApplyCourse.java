@@ -4,30 +4,26 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 public class ApplyCourse {
-    @NotEmpty
+    @NotEmpty(message = "교과 코드를 작성해 주세요")
+    @Pattern(regexp = "\\d{7}", message = "옳바른 교과 코드 7자리를 입력해 주세요.")
     private String subject_code; // 교과코드 - 기본키
 
-    @NotEmpty
-    @Pattern(regexp = "\\d{4}", message = "4자리 년도를 모두 입력해주세요")
-    private String year_of_attendance; // 수강년도 - 문자열로 변경 필요
+    // 2024 - 2 학기 수강신청 이므로
+    private Integer year_of_attendance = 2024;
+    private Integer semester = 2;
 
-    @NotNull
-    @Min(value = 1,message = "1학기, 2학기 중에 선택해주세요.") @Max(value = 2,message = "1학기, 2학기 중에 선택해주세요.")
-    private Integer semester; // 수강 학기 - Integer로 변경
-
-    @NotEmpty
+    @NotEmpty(message = "교과목 명을 작성해 주세요.")
     private String subject_name; // 교과목 명
 
-    @NotEmpty
+    @NotEmpty(message = "교과 구분을 작성해 주세요.")
     private String subject_classification; // 교과 구분
 
-    @NotEmpty
+    @NotEmpty(message = "담당 교수를 작성해 주세요.")
     private String professor_in_charge; // 담당 교수
 
-    @NotNull
+    @NotNull(message = "수강 학점을 학점을 작성해 주세요.")
     private Integer grades; // 학점 - Integer로 변경
 }
