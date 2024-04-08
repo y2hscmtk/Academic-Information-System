@@ -6,9 +6,7 @@ import hansung.ac.kr.academicinformationsystem.repsitory.CourseRepository;
 import lombok.RequiredArgsConstructor;;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +39,7 @@ public class GradeService {
         // 총 취득 학점 계산
         int totalGrades = gradesByYearAndSemester.values().stream().mapToInt(Integer::intValue).sum();
         courseDAO.setTotalGrades(totalGrades); // 누적 합계 설정
-
+        courseDAO.sortCourseDataByYear(); // 정렬 로직 수행
         return courseDAO;
     }
 

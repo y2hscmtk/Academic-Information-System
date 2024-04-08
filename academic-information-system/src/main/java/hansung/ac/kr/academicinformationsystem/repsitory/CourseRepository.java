@@ -6,12 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Repository
 @Transactional
 @RequiredArgsConstructor
 public class CourseRepository{
+
 
     private final EntityManager em;
 
@@ -20,7 +22,7 @@ public class CourseRepository{
     public List<Course> getAllCourses(){
         // 모든 Course정보 얻기
         return em.createQuery("select c from Course c", Course.class)
-                .getResultList(); // List 형식으로 데이터 얻기
+                .getResultList();
     }
 
     // 특정 학년 & 학기 정보에 해당하는 Course 정보 조회
@@ -34,3 +36,4 @@ public class CourseRepository{
 
 
 }
+
