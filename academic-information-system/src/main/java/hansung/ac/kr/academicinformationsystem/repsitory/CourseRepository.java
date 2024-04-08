@@ -1,5 +1,6 @@
 package hansung.ac.kr.academicinformationsystem.repsitory;
 
+import hansung.ac.kr.academicinformationsystem.dao.ApplyCourse;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,12 @@ public class CourseRepository{
                 .getResultList();
     }
 
+    // 수강신청
+    @Transactional // 저장
+    public void save(Course course){
+        em.persist(course);
+        em.flush(); // 영속화 해제 -> 커밋
+    }
 
 }
 

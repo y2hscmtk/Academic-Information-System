@@ -39,9 +39,11 @@ public class CourseController {
             System.out.println("error" + result.getAllErrors());
             return "applyCourse"; // 현재 페이지에 머물러 있기
         }
-
-        // 수강신청 처리 => 2024-2 로만 수강 신청 가능하도록 작성 필요
         System.out.println("success!!");
+
+        // 수강신청 수행
+        gradeService.applyCourse(applyCourse);
+
         return "redirect:/";
     }
 

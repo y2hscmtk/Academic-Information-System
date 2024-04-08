@@ -1,5 +1,6 @@
 package hansung.ac.kr.academicinformationsystem.service;
 
+import hansung.ac.kr.academicinformationsystem.dao.ApplyCourse;
 import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import hansung.ac.kr.academicinformationsystem.repsitory.CourseRepository;
@@ -50,6 +51,20 @@ public class GradeService {
         return courseRepository.getSpecificCourses(year,semester);
     }
 
+    // 3. 수강신청
+    public void applyCourse(ApplyCourse applyCourse) {
+        // ApplyCourse -> Course 변환 필요
+        Course course = Course.builder().name(applyCourse.getSubject_name())
+                .year(applyCourse.getYear_of_attendance())
+                .code(applyCourse.getSubject_code())
+                .grades(applyCourse.getGrades())
+                .classification(applyCourse.getSubject_classification())
+                .professor(applyCourse.getProfessor_in_charge())
+                .semester(applyCourse.getSemester())
+                .build();
+
+        courseRepository.save(course);
+    }
 
 
 }
