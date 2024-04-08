@@ -32,7 +32,7 @@ public class CourseController {
         return "applyCourse"; // 수강신청 페이지 연결
     }
 
-    // 수강 신청료
+    // 수강 신청
     @PostMapping("/apply-course")
     public String applyCourse(@Valid ApplyCourse applyCourse, BindingResult result){
         if (result.hasErrors()) { // 에러 발생시
@@ -54,6 +54,6 @@ public class CourseController {
         // 2024-2학기 수강 신청 내역 Service에게 요청
         List<Course> specificCourses = gradeService.getSpecificCourses(2024, 2);
         model.addAttribute("courses", specificCourses);
-        return "myCourse";
+        return "gradeDetail";
     }
 }
