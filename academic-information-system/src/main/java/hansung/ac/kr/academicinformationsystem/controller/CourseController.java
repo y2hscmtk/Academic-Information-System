@@ -32,15 +32,16 @@ public class CourseController {
         return "applyCourse"; // 수강신청 페이지 연결
     }
 
-    // 수강 신청
+    // 수강 신청료
     @PostMapping("/apply-course")
     public String applyCourse(@Valid ApplyCourse applyCourse, BindingResult result){
         if (result.hasErrors()) { // 에러 발생시
+            System.out.println("error" + result.getAllErrors());
             return "applyCourse"; // 현재 페이지에 머물러 있기
         }
 
         // 수강신청 처리 => 2024-2 로만 수강 신청 가능하도록 작성 필요
-
+        System.out.println("success!!");
         return "redirect:/";
     }
 

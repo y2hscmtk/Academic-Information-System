@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class ApplyCourse {
     @NotEmpty(message = "교과 코드를 작성해 주세요")
-    @Pattern(regexp = "\\d{7}", message = "옳바른 교과 코드 7자리를 입력해 주세요.")
+    @Pattern(regexp = "[a-zA-Z0-9]{7,}", message = "올바른 교과 코드 7자리를 입력해 주세요.")
     private String subject_code; // 교과코드 - 기본키
 
     // 2024 - 2 학기 수강신청 이므로

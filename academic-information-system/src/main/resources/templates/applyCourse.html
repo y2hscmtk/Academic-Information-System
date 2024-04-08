@@ -7,14 +7,29 @@
 <body>
 <h1>수강 신청</h1>
 <form th:action="@{/apply-course}" th:object="${applyCourse}" method="post">
-  <p>교과코드: <input type="text" th:field="*{subject_code}" /></p>
-  <p>수강년도: <input type="number" th:field="*{year_of_attendance}" /></p>
-  <p>수강 학기: <input type="number" th:field="*{semester}" /></p>
-  <p>교과목 명: <input type="text" th:field="*{subject_name}" /></p>
-  <p>교과 구분: <input type="text" th:field="*{subject_classification}" /></p>
-  <p>담당 교수: <input type="text" th:field="*{professor_in_charge}" /></p>
-  <p>학점: <input type="number" th:field="*{grades}" /></p>
-  <p><input type="submit" value="수강신청" /></p>
+  <div>
+    <p>교과코드: <input type="text" th:field="*{subject_code}" />
+      <span th:if="${#fields.hasErrors('subject_code')}" th:errors="*{subject_code}"></span></p>
+  </div>
+  <div>
+    <p>교과목 명: <input type="text" th:field="*{subject_name}" />
+      <span th:if="${#fields.hasErrors('subject_name')}" th:errors="*{subject_name}"></span></p>
+  </div>
+  <div>
+    <p>교과 구분: <input type="text" th:field="*{subject_classification}" />
+      <span th:if="${#fields.hasErrors('subject_classification')}" th:errors="*{subject_classification}"></span></p>
+  </div>
+  <div>
+    <p>담당 교수: <input type="text" th:field="*{professor_in_charge}" />
+      <span th:if="${#fields.hasErrors('professor_in_charge')}" th:errors="*{professor_in_charge}"></span></p>
+  </div>
+  <div>
+    <p>학점: <input type="number" th:field="*{grades}" />
+      <span th:if="${#fields.hasErrors('grades')}" th:errors="*{grades}"></span></p>
+  </div>
+  <div>
+    <p><input type="submit" value="수강신청" /></p>
+  </div>
 </form>
 </body>
 </html>
