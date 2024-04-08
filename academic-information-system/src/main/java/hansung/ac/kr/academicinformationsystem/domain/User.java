@@ -1,22 +1,27 @@
 package hansung.ac.kr.academicinformationsystem.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Getter
+import java.util.Set;
+
+// Authorities 테이블과 다대일 관계
+// User ------- Authorities
+//     1       *
+// 하나의 사용자는 여러개의 권한을 가질 수 있음
+@Entity @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "User")
 public class User {
-    @Id @Column
+    @Id @Column(name = "username")
     public String username;
-    @Column
     public String email;
-    @Column
     public String password;
+
+    // Authorities 매핑
+    @OneToMany(mappedBy = "user")
+    private Set<Authorities> authorities;
+
 }

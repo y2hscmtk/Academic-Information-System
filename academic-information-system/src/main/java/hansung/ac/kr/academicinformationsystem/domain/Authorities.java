@@ -1,21 +1,21 @@
 package hansung.ac.kr.academicinformationsystem.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Getter
+@Entity @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "Authorities")
 public class Authorities {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "username")
+    private User user;
+
     @Column
-    public String username;
-    @Column
-    public String authority;
+    private String authority;
 }

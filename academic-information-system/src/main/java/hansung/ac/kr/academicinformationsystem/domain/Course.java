@@ -1,9 +1,6 @@
 package hansung.ac.kr.academicinformationsystem.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -13,8 +10,7 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "Course")
 public class Course {
-    @Id
-    @Column(name = "subject_code")
+    @Id @Column(name = "subject_code")
     private String code; // 교과코드 - 기본키
     @Column(name = "year_of_attendance")
     private int year; // 수강년도
@@ -28,5 +24,4 @@ public class Course {
     private String professor; // 담당 교수
     @Column(name = "grades")
     private int grades; // 학점
-
 }
