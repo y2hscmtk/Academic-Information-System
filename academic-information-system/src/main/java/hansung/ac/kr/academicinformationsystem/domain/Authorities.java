@@ -14,7 +14,7 @@ public class Authorities {
 
     @ManyToOne
     @JoinColumn(name = "username")
-    private User user;
+    private Users users;
 
     @Column
     private String authority;

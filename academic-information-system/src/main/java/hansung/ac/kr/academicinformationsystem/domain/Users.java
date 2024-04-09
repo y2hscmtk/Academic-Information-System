@@ -14,14 +14,14 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "User")
-public class User {
+public class Users {
     @Id @Column(name = "username")
     public String username;
     public String email;
     public String password;
 
     // Authorities 매핑
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "users")
     private Set<Authorities> authorities;
 
 }
