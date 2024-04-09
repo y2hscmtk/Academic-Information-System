@@ -54,12 +54,12 @@ public class GradeService {
     // 3. 수강신청
     public void applyCourse(ApplyCourse applyCourse) {
         // ApplyCourse -> Course 변환 필요
-        Course course = Course.builder().name(applyCourse.getSubject_name())
-                .year(applyCourse.getYear_of_attendance())
-                .code(applyCourse.getSubject_code())
+        Course course = Course.builder().name(applyCourse.getSubjectName())
+                .year(applyCourse.getYear())
+                .code(applyCourse.getSubjectCode())
                 .grades(applyCourse.getGrades())
-                .classification(applyCourse.getSubject_classification())
-                .professor(applyCourse.getProfessor_in_charge())
+                .classification(applyCourse.getClassification())
+                .professor(applyCourse.getProfessor())
                 .semester(applyCourse.getSemester())
                 .build();
 

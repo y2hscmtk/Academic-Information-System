@@ -4,7 +4,6 @@ import hansung.ac.kr.academicinformationsystem.dao.ApplyCourse;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import hansung.ac.kr.academicinformationsystem.service.GradeService;
 import jakarta.validation.Valid;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
