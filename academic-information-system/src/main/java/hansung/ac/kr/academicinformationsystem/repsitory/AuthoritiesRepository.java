@@ -19,7 +19,7 @@ public class AuthoritiesRepository{
 
     // 1. 사용자 권한 확인
     public Set<Authorities> getUserAuthorities(String username) {
-        List<Authorities> authorities = em.createQuery("select a from Authorities a where a.user.username = :username", Authorities.class)
+        List<Authorities> authorities = em.createQuery("select a from Authorities a where a.users.username = :username", Authorities.class)
                 .setParameter("username", username)
                 .getResultList();
         return new HashSet<>(authorities);
