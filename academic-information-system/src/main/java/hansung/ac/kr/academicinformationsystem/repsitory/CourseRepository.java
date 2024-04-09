@@ -1,13 +1,10 @@
 package hansung.ac.kr.academicinformationsystem.repsitory;
 
-import hansung.ac.kr.academicinformationsystem.dao.ApplyCourse;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Comparator;
 import java.util.List;
 
 @Repository

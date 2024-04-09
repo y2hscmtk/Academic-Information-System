@@ -5,12 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -26,8 +23,8 @@ public class WebSecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin((formLogin) ->
-                        formLogin.loginPage("/login.html")
-                                .defaultSuccessUrl("/home"))
+                        formLogin.loginPage("/login") // 커스텀 폼 설정
+                                .defaultSuccessUrl("/home",true))
                 .authorizeHttpRequests((authorizeRequests) ->
                 authorizeRequests
                         .requestMatchers("/grade-detail").authenticated()
@@ -41,12 +38,6 @@ public class WebSecurityConfig {
 
 
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-       return (web) -> web.ignoring().requestMatchers("/apply-course")
-               .requestMatchers("/**");
-    }
-
-    @Bean
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
         inMemoryUserDetailsManager.createUser(
@@ -54,10 +45,5 @@ public class WebSecurityConfig {
                         .password("1234")
                         .roles("user").build());
         return inMemoryUserDetailsManager;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }
