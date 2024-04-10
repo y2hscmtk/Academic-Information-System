@@ -2,15 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>로그인 페이지</title>
+    <title>로그인</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
 </head>
 <body>
-<form action="/login" method="post">
-    아이디: <input name="username" type="text"><br>
-    비밀번호: <input name="password" type="password"><br>
-    <!-- CSRF 토큰 추가 -->
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-    <button type="submit">로그인</button>
-</form>
+<div class="background-container">
+    <img src="/images/login_back.png" alt="Background Image" class="background-image"/> <!-- 배경 이미지 -->
+    <div class="login-container">
+        <form action="/login" method="post" class="form-login">
+            <img class="login-logo" src="/images/login_title_image.png" alt="학점 조회 아이콘"/>
+            <div class="input-group">
+                <input placeholder="username" id="username" name="username" type="text" required autofocus>
+            </div>
+            <div class="input-group">
+                <input placeholder="password" id="password" name="password" type="password" required>
+            </div>
+            <!-- CSRF 토큰 추가 => 스프링 시큐리티 -->
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+            <div class="button-container">
+                <input class="login-button" type="submit" value="로그인">
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
