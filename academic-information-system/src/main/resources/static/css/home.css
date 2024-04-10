@@ -63,7 +63,7 @@ body {
 /* 하단바 스타일 */
 .footer {
     background-color: #262626; /* 배경색 */
-    color: #737373; /* 텍스트 색상 */
+    color: #ffffff; /* 텍스트 색상 */
     position: fixed;
     bottom: 0;
     width: 100%;
