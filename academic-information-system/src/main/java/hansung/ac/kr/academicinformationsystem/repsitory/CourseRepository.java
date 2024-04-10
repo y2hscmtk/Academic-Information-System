@@ -18,8 +18,9 @@ public class CourseRepository{
 
     // 모든 Course정보 조회
     public List<Course> getAllCourses(){
-        // 모든 Course정보 얻기
-        return em.createQuery("select c from Course c", Course.class)
+        // 모든 Course정보 얻기(2024-2학기 정보는 제외하도록)
+        return em.createQuery("select c from Course c where c.year!=2024 or (c.year = 2024 and c.semester = 1) " +
+                        "and c.semester!=2", Course.class)
                 .getResultList();
     }
 
