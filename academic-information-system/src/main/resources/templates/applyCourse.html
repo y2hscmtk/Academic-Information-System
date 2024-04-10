@@ -3,33 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>수강 신청</title>
+  <link rel="stylesheet" type="text/css" href="/css/applyCourse.css">
 </head>
 <body>
-<h1>수강 신청</h1>
-<form th:action="@{/apply-course}" th:object="${applyCourse}" method="post">
-  <div>
-    <p>교과코드: <input type="text" th:field="*{subjectCode}" />
-      <span th:if="${#fields.hasErrors('subjectCode')}" th:errors="*{subjectCode}"></span></p>
-  </div>
-  <div>
-    <p>교과목 명: <input type="text" th:field="*{subjectName}" />
-      <span th:if="${#fields.hasErrors('subjectName')}" th:errors="*{subjectName}"></span></p>
-  </div>
-  <div>
-    <p>교과 구분: <input type="text" th:field="*{classification}" />
-      <span th:if="${#fields.hasErrors('classification')}" th:errors="*{classification}"></span></p>
-  </div>
-  <div>
-    <p>담당 교수: <input type="text" th:field="*{professor}" />
-      <span th:if="${#fields.hasErrors('professor')}" th:errors="*{professor}"></span></p>
-  </div>
-  <div>
-    <p>학점: <input type="number" th:field="*{grades}" />
-      <span th:if="${#fields.hasErrors('grades')}" th:errors="*{grades}"></span></p>
-  </div>
-  <div>
-    <p><input type="submit" value="수강신청" /></p>
-  </div>
-</form>
+<header class="header">
+  <h1>2024-2 수강 신청</h1>
+</header>
+<div class="content">
+  <form th:action="@{/apply-course}" th:object="${applyCourse}" method="post">
+    <div>
+      <p>교과코드: <input type="text" th:field="*{subjectCode}" />
+        <span th:if="${#fields.hasErrors('subjectCode')}" th:errors="*{subjectCode}"></span></p>
+    </div>
+    <div>
+      <p>교과목 명: <input type="text" th:field="*{subjectName}" />
+        <span th:if="${#fields.hasErrors('subjectName')}" th:errors="*{subjectName}"></span></p>
+    </div>
+    <div>
+      <p>교과 구분: <input type="text" th:field="*{classification}" />
+        <span th:if="${#fields.hasErrors('classification')}" th:errors="*{classification}"></span></p>
+    </div>
+    <div>
+      <p>담당 교수: <input type="text" th:field="*{professor}" />
+        <span th:if="${#fields.hasErrors('professor')}" th:errors="*{professor}"></span></p>
+    </div>
+    <div>
+      <p>학점: <input type="number" th:field="*{grades}" />
+        <span th:if="${#fields.hasErrors('grades')}" th:errors="*{grades}"></span></p>
+    </div>
+    <div>
+      <p><input type="submit" value="수강신청" /></p>
+    </div>
+  </form>
+</div>
+<footer class="footer">
+  <p>© 2024 한성대학교. All rights reserved.</p>
+</footer>
 </body>
 </html>
