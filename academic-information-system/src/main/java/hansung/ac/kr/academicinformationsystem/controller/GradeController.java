@@ -41,7 +41,10 @@ public class GradeController {
             @RequestParam int semester, // 학기
             Model model) {
         List<Course> specificCourses = gradeService.getSpecificCourses(year, semester);
-        model.addAttribute("courses", specificCourses); // 모델에 값 전달
+        // 모델에 값 전달
+        model.addAttribute("year", year);
+        model.addAttribute("semester", semester);
+        model.addAttribute("courses", specificCourses);
         return "gradeDetail";
     }
 }
