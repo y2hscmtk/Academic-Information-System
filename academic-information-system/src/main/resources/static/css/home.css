@@ -51,6 +51,7 @@ body {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -74,12 +75,9 @@ body {
     padding-top: 10px; /* 상단 여백 추가 */
 }
 
-
-
-
 /* 카드 내부 요소 스타일 */
 .card img {
-    width: 80px;
+    width: 160px;
     height: auto;
 }
 
