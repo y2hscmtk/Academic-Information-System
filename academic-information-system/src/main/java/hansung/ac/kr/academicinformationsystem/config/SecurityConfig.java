@@ -36,6 +36,7 @@ public class SecurityConfig {
                 )
                 .formLogin(form -> form
                         .loginPage("/login") // 커스텀 로그인 폼 사용
+                        .defaultSuccessUrl("/",true)
                         .permitAll()
                 )
                 .logout(logout -> logout.permitAll());
