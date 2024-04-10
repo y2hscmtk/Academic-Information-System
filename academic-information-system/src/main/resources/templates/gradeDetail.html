@@ -2,31 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Specific Inquiry</title>
+    <link rel="stylesheet" type="text/css" href="/css/graph.css">
 </head>
 <body>
-<h1>Specific Inquiry</h1>
-<table>
-    <thead>
-    <tr>
-        <th>년도</th>
-        <th>학기</th>
-        <th>교과목명</th>
-        <th>교과구분</th>
-        <th>담당교수</th>
-        <th>학점</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr th:each="course : ${courses}">
-            <td th:text="${course.year}">년도</td>
-            <td th:text="${course.semester}">학기</td>
-            <td th:text="${course.name}">교과목명</td>
-            <td th:text="${course.classification}">교과구분</td>
-            <td th:text="${course.professor}">담당교수</td>
-            <td th:text="${course.grades}">학점</td>
-        </tr>
-    </tbody>
-</table>
+<header class="header">
+    <h1 th:text="${year + '-' + semester + ' 학적 조회'}">학년별 이수 학점 조회</h1>
+</header>
+    <div class="main">
+        <main class="table-container">
+            <table class="grade-table">
+                <thead>
+                <tr>
+                    <th>년도</th>
+                    <th>학기</th>
+                    <th>교과목명</th>
+                    <th>교과구분</th>
+                    <th>담당교수</th>
+                    <th>학점</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${courses}">
+                    <td th:text="${course.year}">년도</td>
+                    <td th:text="${course.semester}">학기</td>
+                    <td th:text="${course.name}">교과목명</td>
+                    <td th:text="${course.classification}">교과구분</td>
+                    <td th:text="${course.professor}">담당교수</td>
+                    <td th:text="${course.grades}">학점</td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>© 2024 한성대학교. All rights reserved.</p>
+    </footer>
 </body>
 </html>

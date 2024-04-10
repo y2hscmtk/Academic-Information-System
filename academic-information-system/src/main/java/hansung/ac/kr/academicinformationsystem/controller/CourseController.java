@@ -52,6 +52,8 @@ public class CourseController {
     public String enrolmentLookUp(Model model) {
         // 2024-2학기 수강 신청 내역 Service에게 요청
         List<Course> specificCourses = gradeService.getSpecificCourses(2024, 2);
+        model.addAttribute("year", 2024);
+        model.addAttribute("semester", 2);
         model.addAttribute("courses", specificCourses);
         return "gradeDetail";
     }
