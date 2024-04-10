@@ -10,7 +10,7 @@ body {
 
 /* 상단바 스타일 */
 .header {
-    background-color: #007bff;
+    background-color: #1151A4;
     padding: 10px 0;
     text-align: center;
     position: relative;
@@ -22,7 +22,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     padding: 5px 15px;
-    background-color: blue;
+    background-color: #1151A4;
     color: white;
     text-decoration: none;
     border: none;
@@ -61,8 +61,8 @@ body {
 
 /* 하단바 스타일 */
 .footer {
-    background-color: #007bff;
-    color: white; /* 텍스트 색상 */
+    background-color: #262626; /* 배경색 */
+    color: #737373; /* 텍스트 색상 */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -94,7 +94,7 @@ body {
 
 .card button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #1151A4;
     color: white;
     border: none;
     border-radius: 5px;
