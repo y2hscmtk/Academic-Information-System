@@ -2,38 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Credit Inquiry</title>
-<!--  스타일시트 추가 필요-->
+  <title>학년별 이수 학점 조회</title>
+  <link rel="stylesheet" type="text/css" href="/css/total_grade.css">
 </head>
 <body>
-<h1>Credit Inquiry</h1>
-<table class="table">
-  <thead class="table-light">
-  <tr>
-    <th>년도</th>
-    <th>학기</th>
-    <th>취득 학점</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="course : ${courseDataArray}">
-    <td th:text="${course.year}">년도</td>
-    <td th:text="${course.semester}">학기</td>
-    <td th:text="${course.grades}">취득 학점</td>
-    <td>
-      <!-- 상세 정보 보기 링크 -->
-      <a th:href="@{/grade-detail(year=${course.year}, semester=${course.semester})}"
-         th:text="'상세 정보 보기'">상세 정보 보기</a>
-    </td>
-  </tr>
+  <header class="header">
+    <h1>학년별 이수 학점 조회</h1>
+  </header>
+  <div class="main">
+    <main class="table-container">
+      <table class="grade-table">
+        <thead>
+        <tr>
+          <th>년도</th>
+          <th>학기</th>
+          <th>취득 학점</th>
+          <th>상세 정보</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courseDataArray}">
+          <td th:text="${course.year}">년도</td>
+          <td th:text="${course.semester}">학기</td>
+          <td th:text="${course.grades}">취득 학점</td>
+          <td class="detail-link">
+            <a th:href="@{/grade-detail(year=${course.year}, semester=${course.semester})}"
+               th:text="'상세 정보 보기'">상세 정보 보기</a>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="2">총계</td>
+          <td th:text="${totalGrades}">총 취득 학점</td>
+        </tr>
+        </tfoot>
+      </table>
+    </main>
+  </div>
 
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2">총계</td>
-    <td th:text="${totalGrades}">총 취득 학점</td>
-  </tr>
-  </tfoot>
-</table>
+  <footer class="footer">
+    <p>© 2024 한성대학교. All rights reserved.</p>
+  </footer>
 </body>
 </html>
