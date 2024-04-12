@@ -1,4 +1,4 @@
-/* 전체 페이지의 배경 및 폰트 스타일링 */
+/* 로그인 페이지 CSS */
 body {
     background-image: url('static/images/login_back.png');
     background-size: cover;
@@ -6,6 +6,7 @@ body {
     color: #333;
 }
 
+/* 로그인 컨테이너 뒤에 보이게 할 한성대 이미지 */
 .background-image {
     width: 100%; /* 이미지가 부모 요소의 전체 너비를 차지하도록 */
     height: auto; /* 이미지 비율 유지 */
@@ -20,7 +21,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px; /* 혹은 원하는 너비 */
+    width: 300px;
     padding: 40px;
     background: #222940;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -32,19 +33,19 @@ body {
     font-size: 15px;
 }
 
-/* 입력란 스타일링 */
+/* 텍스트 박스 */
 .input-group input {
-    width: 100%; /* 전체 너비 */
-    padding: 10px 0; /* 상하 패딩 */
-    font-size: 16px; /* 글자 크기 */
-    border: none; /* 테두리 없음 */
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
     border-bottom: 2px solid white; /* 하얀색 밑줄 */
-    background-color: transparent; /* 배경색 투명 */
+    background-color: transparent; /* 배경색 투명으로 설정 */
     color: white; /* 글자 색상 */
     margin-bottom: 20px; /* 하단 여백 */
 }
 
-/* 입력란에 입력할 때의 스타일 */
+/* 텍스트 박스 입력시 스타일 */
 .input-group input::placeholder {
     color: rgba(255, 255, 255, 0.7); /* 플레이스홀더 색상 */
 }
@@ -59,7 +60,7 @@ body {
     border-bottom: 2px solid #0A84FF; /* 포커스 시 밑줄 색상 변경 */
 }
 
-/* 로그인 버튼 스타일링 */
+/* 로그인 버튼 스타일 */
 .button-container {
     text-align: center;
 }

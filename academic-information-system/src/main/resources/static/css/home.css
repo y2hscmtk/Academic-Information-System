@@ -1,4 +1,4 @@
-/* 전체 페이지에 대한 스타일 */
+/* 메인 페이지 CSS */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -45,7 +45,7 @@ body {
 }
 
 .card {
-    flex: 1; /* 카드가 유동적으로 크기를 조정할 수 있도록 flex 설정 */
+    flex: 1; /* 카드가 유동적으로 크기를 조정할 수 있도록 */
     margin: 0 20px; /* 좌우 여백 추가 */
     background: #f8f9fa;
     border-radius: 15px;
@@ -55,24 +55,24 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 내용이 하단까지 확장되도록 설정 */
+    justify-content: space-between;
     min-height: 300px; /* 최소 높이 설정 */
     flex-grow: 1;
 }
 
 /* 하단바 스타일 */
 .footer {
-    background-color: #262626; /* 배경색 */
-    color: #ffffff; /* 텍스트 색상 */
+    background-color: #262626;
+    color: #ffffff;
     position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
-    align-items: center; /* 수직 정렬을 중앙으로 */
-    justify-content: flex-start; /* 수평 정렬을 왼쪽으로 */
-    height: 40px; /* 높이를 50px로 설정 */
-    padding-left: 20px; /* 왼쪽 여백 추가 */
-    padding-top: 10px; /* 상단 여백 추가 */
+    align-items: center;
+    justify-content: flex-start;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 /* 카드 내부 요소 스타일 */
