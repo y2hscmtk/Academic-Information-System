@@ -1,4 +1,4 @@
-package hansung.ac.kr.academicinformationsystem.dao;
+package hansung.ac.kr.academicinformationsystem.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 // '학년별 이수 학점 조회' 시 사용하기 위함
 @Getter @Setter
-public class CourseDAO {
+public class CourseDTO {
     @Getter @Setter @AllArgsConstructor
     public static class CourseData {
         private int year; //년도

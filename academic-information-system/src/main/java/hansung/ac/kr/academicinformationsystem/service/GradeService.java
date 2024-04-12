@@ -1,7 +1,7 @@
 package hansung.ac.kr.academicinformationsystem.service;
 
 import hansung.ac.kr.academicinformationsystem.dao.ApplyCourse;
-import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
+import hansung.ac.kr.academicinformationsystem.dto.CourseDTO;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import hansung.ac.kr.academicinformationsystem.repsitory.CourseRepository;
 import lombok.RequiredArgsConstructor;;
@@ -16,9 +16,9 @@ public class GradeService {
     private final CourseRepository courseRepository;
 
     // 1. 수업데이터 바탕으로 총계 계산(가장 마지막 행에 취득학점 총계 표시)
-    public CourseDAO getAllCoursesAndTotalScore() {
+    public CourseDTO getAllCoursesAndTotalScore() {
         List<Course> allCourses = courseRepository.getAllCourses();
-        CourseDAO courseDAO = new CourseDAO();
+        CourseDTO courseDTO = new CourseDTO();
 
         // 년도 - 학기를 키로 갖는 맵 생성
         Map<String, Integer> gradesByYearAndSemester = new HashMap<>();
@@ -34,14 +34,14 @@ public class GradeService {
             String[] parts = yearSemester.split("-");
             int year = Integer.parseInt(parts[0]);
             int semester = Integer.parseInt(parts[1]);
-            courseDAO.addCourseData(new CourseDAO.CourseData(year, semester, grades));
+            courseDTO.addCourseData(new CourseDTO.CourseData(year, semester, grades));
         });
 
         // 총 취득 학점 계산
         int totalGrades = gradesByYearAndSemester.values().stream().mapToInt(Integer::intValue).sum();
-        courseDAO.setTotalGrades(totalGrades); // 누적 합계 설정
-        courseDAO.sortCourseDataByYear(); // 정렬 로직 수행
-        return courseDAO;
+        courseDTO.setTotalGrades(totalGrades); // 누적 합계 설정
+        courseDTO.sortCourseDataByYear(); // 정렬 로직 수행
+        return courseDTO;
     }
 
 

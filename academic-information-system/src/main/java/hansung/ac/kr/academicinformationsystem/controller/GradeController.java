@@ -1,6 +1,6 @@
 package hansung.ac.kr.academicinformationsystem.controller;
 
-import hansung.ac.kr.academicinformationsystem.dao.CourseDAO;
+import hansung.ac.kr.academicinformationsystem.dto.CourseDTO;
 import hansung.ac.kr.academicinformationsystem.domain.Course;
 import hansung.ac.kr.academicinformationsystem.service.GradeService;
 import lombok.RequiredArgsConstructor;
@@ -26,10 +26,10 @@ public class GradeController {
     // 총계,      총 취득 학점
     @GetMapping("/total-grade")
     public String totalGrade(Model model) {
-        CourseDAO courseDAO = gradeService.getAllCoursesAndTotalScore();
-        ArrayList<CourseDAO.CourseData> courseDataArray = courseDAO.getCourseDataArray();
+        CourseDTO courseDTO = gradeService.getAllCoursesAndTotalScore();
+        ArrayList<CourseDTO.CourseData> courseDataArray = courseDTO.getCourseDataArray();
         model.addAttribute("courseDataArray", courseDataArray); // 수업 정보
-        model.addAttribute("totalGrades", courseDAO.getTotalGrades()); // 총 취득 학점
+        model.addAttribute("totalGrades", courseDTO.getTotalGrades()); // 총 취득 학점
         return "totalGrade";
     }
 
