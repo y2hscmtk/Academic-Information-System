@@ -1,5 +1,7 @@
 # Academic-Information-System
 [2024-1] 웹 프레임워크2 텀 프로젝트 - 학사정보시스템
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fy2hscmtk%2FAcademic-Information-System&count_bg=%233875CD&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 
 ### 메인화면
 학년별 이수 학점 조회, 수강 신청, 수강 신청 조회 화면으로 이동하기 위한 카드뷰를 제공한다.
