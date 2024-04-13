@@ -30,29 +30,36 @@
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/ad5d3991-548b-44c9-a4f6-20247d438652)
 
 유효성 검증1  
+
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/6c829bc4-bc86-460c-a087-5117d38e5412)
 
 유효성 검증2  
+
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/6eed0e34-6da3-426d-9851-08926467f13b)
 
 
 ### 수강신청 조회
 2024년도 2학기 수강신청한 과목에 대한 상세 정보를 제공한다. 메인화면에서 수강신청 조회 카드뷰를 눌러서 이동할 수 있다.  
+
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/825e1155-399d-4ec3-abd7-675759b3342a)
 
 
 ### 데이터베이스 스키마
+
 이 프로젝트에 사용된 데이터베이스 스키마는 아래와 같다.
 
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/f024cb39-1087-4e4f-ad29-7df786d1c35f)
 
 **Authorities**  
+
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/70fc84ab-9c6f-4062-845c-22cc3339e371)
 
 **User**  
+
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/8d6110d6-a2db-402b-b445-9903febc4360)
 
-**Course**  
+**Course**
+
 ![image](https://github.com/y2hscmtk/Academic-Information-System/assets/109474668/917e8ea6-b1c7-4935-9a76-bd306853dd3b)
 
 
